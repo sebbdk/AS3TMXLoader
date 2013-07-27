@@ -3,7 +3,7 @@ package dk.sebb.tiled.layers
 	import flash.display.Bitmap;
 	import dk.sebb.tiled.TMXLoader;
 
-	public class ImageLayer extends Layer
+	public dynamic class ImageLayer extends Layer
 	{
 		public function ImageLayer(_layer:XML, _tmxLoader:TMXLoader)
 		{

@@ -4,7 +4,7 @@ package dk.sebb.tiled.layers
 	
 	import flash.display.Shape;
 
-	public class ObjectLayer extends Layer
+	public dynamic class ObjectLayer extends Layer
 	{	
 		public function ObjectLayer(_layer:XML, _tmxLoader:TMXLoader)
 		{

@@ -23,4 +23,4 @@ Oh and this is a alpha so breaking changes are liable to happen since this was h
 	}
 	
 #Notes:
-Each layer object has the properties you specified in Tiled, ObjectLayers contains objects wich has the object properties specified in Tiled.
+Each layer object has the properties you specified in Tiled, ObjectLayers contains objects which has the object properties specified in Tiled.

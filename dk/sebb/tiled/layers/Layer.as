@@ -11,7 +11,7 @@ package dk.sebb.tiled.layers
 	import dk.sebb.tiled.TMXLoader;
 	import dk.sebb.tiled.TileSet;
 	
-	public class Layer extends EventDispatcher
+	public dynamic class Layer extends EventDispatcher
 	{
 		public var layer:XML;
 		public var map:Array;
@@ -68,11 +68,7 @@ package dk.sebb.tiled.layers
 				for each (var property:XML in layer.properties.children()) {
 					var pname:String = property.attribute("name");
 					var pvalue:String = property.attribute("value");
-					if(this.hasOwnProperty(pname)) {
-						this[pname] = pvalue;
-					} else {
-						trace('unknown layer property', pname, 'being used on layer' , name);
-					}	
+					this[pname] = pvalue;	
 				}
 			}
 			

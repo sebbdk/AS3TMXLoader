@@ -2,7 +2,7 @@ package dk.sebb.tiled.layers
 {
 	import flash.display.Shape;
 
-	public class TMXObject extends Shape
+	public dynamic class TMXObject extends Shape
 	{
 		public var object:XML;
 
@@ -24,11 +24,7 @@ package dk.sebb.tiled.layers
 				for each (var property:XML in object.properties.children()) {
 					var pname:String = property.attribute("name");
 					var pvalue:String = property.attribute("value");
-					if(this.hasOwnProperty(pname)) {
-						this[pname] = pvalue;
-					} else {
-						trace('unknown layer property', pname, 'being used on layer' , name);
-					}	
+					this[pname] = pvalue;
 				}
 			}
 			

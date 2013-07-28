@@ -13,7 +13,7 @@ package dk.sebb.tiled
 	import dk.sebb.tiled.loaders.ImageLoader;
 	import dk.sebb.tiled.loaders.TilesetLoader;
 	
-	public class TMXLoader extends EventDispatcher
+	public dynamic class TMXLoader extends EventDispatcher
 	{
 		public var levelPath:String;
 		public var xmlLoader:URLLoader;
@@ -64,6 +64,9 @@ package dk.sebb.tiled
 			}
 			totalAssets = xmlCounter;
 
+			//parse map properties
+			parseProperties();
+			
 			// load images from images layers
 			loadImageLayerImages();
 			
@@ -121,6 +124,17 @@ package dk.sebb.tiled
 			// wait until all the tileset images are loaded before we combine them layer by layer into one bitmap
 			if (assetsLoaded == totalAssets) {
 				addTileBitmapData();
+			}
+		}
+		
+		public function parseProperties():void {
+			//parse layer properties
+			if(xml.properties) {
+				for each (var attr:XML in xml.attributes()) {
+					var pname:String = attr.name();
+					var pvalue:String = attr.valueOf();
+					this[pname] = pvalue;	
+				}
 			}
 		}
 		

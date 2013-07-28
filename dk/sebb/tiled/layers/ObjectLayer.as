@@ -6,6 +6,8 @@ package dk.sebb.tiled.layers
 
 	public dynamic class ObjectLayer extends Layer
 	{	
+		public var objects:Array;
+		
 		public function ObjectLayer(_layer:XML, _tmxLoader:TMXLoader)
 		{
 			super(_layer, _tmxLoader);
@@ -13,7 +15,8 @@ package dk.sebb.tiled.layers
 		
 		protected override function parseLayer():void {
 			displayObject.removeChildren();
-
+			objects = [];
+			
 			for each (var object:XML in layer.object) {
 				var rectangle:Shape = new TMXObject(object);
 				rectangle.graphics.lineStyle(2);
@@ -23,6 +26,7 @@ package dk.sebb.tiled.layers
 				rectangle.x = object.attribute("x");
 				rectangle.y = object.attribute("y");
 				displayObject.addChild(rectangle);
+				objects.push(rectangle);
 			}
 		}
 		

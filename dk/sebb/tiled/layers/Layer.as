@@ -71,10 +71,6 @@ package dk.sebb.tiled.layers
 					this[pname] = pvalue;	
 				}
 			}
-			
-			if(display === "false") {
-				displayObject.visible = false;
-			}
 		}
 		
 		/**

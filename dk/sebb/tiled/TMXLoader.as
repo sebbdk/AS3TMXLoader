@@ -52,14 +52,14 @@ package dk.sebb.tiled
 			
 			//find tile sets
 			for each (var tileset:XML in xml.tileset) {
-				var imageWidth:uint = xml.tileset.image.attribute("width")[xmlCounter];
-				var imageHeight:uint = xml.tileset.image.attribute("height")[xmlCounter];
-				var firstGid:uint = xml.tileset.attribute("firstgid")[xmlCounter];
-				var tilesetName:String = xml.tileset.attribute("name")[xmlCounter];
-				var tilesetTileWidth:uint = xml.tileset.attribute("tilewidth")[xmlCounter];
-				var tilesetTileHeight:uint = xml.tileset.attribute("tileheight")[xmlCounter];
-				var tilesetImagePath:String = xml.tileset.image.attribute("source")[xmlCounter];
-				tileSets.push(new TileSet(firstGid, tilesetName, tilesetTileWidth, tilesetTileHeight, tilesetImagePath, imageWidth, imageHeight));
+				var imageWidth:uint = tileset.image.attribute("width");
+				var imageHeight:uint = tileset.image.attribute("height");
+				var firstGid:uint = tileset.attribute("firstgid");
+				var tilesetName:String = tileset.attribute("name");
+				var tilesetTileWidth:uint = tileset.attribute("tilewidth");
+				var tilesetTileHeight:uint = tileset.attribute("tileheight");
+				var tilesetImagePath:String = tileset.image.attribute("source");
+				tileSets.push(new TileSet(firstGid, tilesetName, tilesetTileWidth, tilesetTileHeight, tilesetImagePath, imageWidth, imageHeight, tileset));
 				xmlCounter++;
 			}
 			totalAssets = xmlCounter;

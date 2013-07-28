@@ -16,8 +16,11 @@ package dk.sebb.tiled
 		public var imageHeight:uint;
 		public var bitmapData:BitmapData;
 		public var tileAmountWidth:uint;
+		public var xml:XML;
 		
-		public function TileSet(firstgid:int, name:String, tileWidth:Number, tileHeight:Number, source:String, imageWidth:Number, imageHeight:Number)
+		public static var funcTiles:Array = [];
+		
+		public function TileSet(firstgid:int, name:String, tileWidth:Number, tileHeight:Number, source:String, imageWidth:Number, imageHeight:Number, xml:XML)
 		{
 			this.firstgid = firstgid;
 			this.name = name;
@@ -26,8 +29,27 @@ package dk.sebb.tiled
 			this.source = source;
 			this.imageWidth = imageWidth;
 			this.imageHeight = imageHeight;
+			this.xml = xml;
 			tileAmountWidth = Math.floor(imageWidth / tileWidth);
 			lastgid = tileAmountWidth * Math.floor(imageHeight / tileHeight) + firstgid - 1;
+			
+			parseFuncTiles();
+		}
+		
+		public function parseFuncTiles():void {
+			for each (var tile:XML in xml.tile) {
+				var localGid:int = parseInt(tile.attribute("id"));
+				var funcTile:Object = new Object();
+				//parse tile properties
+				if(xml.properties) {
+					for each (var property:XML in tile.properties.children()) {
+						var pname:String = property.attribute("name");
+						var pvalue:String = property.attribute("value");
+						funcTile[pname] = pvalue;
+					}
+				}
+				funcTiles[localGid + firstgid] = funcTile;
+			}
 		}
 	}
 }

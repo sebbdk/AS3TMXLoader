@@ -1,5 +1,11 @@
 package dk.sebb.tiled
 {
+	import dk.sebb.tiled.layers.ImageLayer;
+	import dk.sebb.tiled.layers.Layer;
+	import dk.sebb.tiled.layers.ObjectLayer;
+	import dk.sebb.tiled.loaders.ImageLoader;
+	import dk.sebb.tiled.loaders.TilesetLoader;
+	
 	import flash.display.Bitmap;
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
@@ -7,11 +13,6 @@ package dk.sebb.tiled
 	import flash.events.ProgressEvent;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
-	import dk.sebb.tiled.layers.ImageLayer;
-	import dk.sebb.tiled.layers.Layer;
-	import dk.sebb.tiled.layers.ObjectLayer;
-	import dk.sebb.tiled.loaders.ImageLoader;
-	import dk.sebb.tiled.loaders.TilesetLoader;
 	
 	public dynamic class TMXLoader extends EventDispatcher
 	{
@@ -129,10 +130,18 @@ package dk.sebb.tiled
 		
 		public function parseProperties():void {
 			//parse layer properties
-			if(xml.properties) {
+			if(xml.attributes()) {
 				for each (var attr:XML in xml.attributes()) {
-					var pname:String = attr.name();
-					var pvalue:String = attr.valueOf();
+					var aname:String = attr.name();
+					var avalue:String = attr.valueOf();
+					this[aname] = avalue;	
+				}
+			}
+			
+			if(xml.properties) {
+				for each (var property:XML in xml.properties.children()) {
+					var pname:String = property.attribute("name");
+					var pvalue:String = property.attribute("value");
 					this[pname] = pvalue;	
 				}
 			}

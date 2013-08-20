@@ -3,7 +3,7 @@ AS3TMXLoader
 
 Parses a XML Tiled TMX file, loads assets, and creates bitmap layers that are ready for usage in your app/game.
 
-#Important!:
+#Important!
 I wrote this to scratch my own itch, use it any way you like. 
 Oh and this is a alpha so breaking changes are liable to happen since this was hastily written.
 	

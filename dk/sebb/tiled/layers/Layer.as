@@ -2,12 +2,11 @@ package dk.sebb.tiled.layers
 {
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
-	import flash.display.DisplayObject;
 	import flash.display.MovieClip;
 	import flash.events.EventDispatcher;
-	import flash.events.IEventDispatcher;
 	import flash.geom.Point;
 	import flash.geom.Rectangle;
+	
 	import dk.sebb.tiled.TMXLoader;
 	import dk.sebb.tiled.TileSet;
 	

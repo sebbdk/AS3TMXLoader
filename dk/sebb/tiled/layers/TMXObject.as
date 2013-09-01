@@ -1,9 +1,6 @@
 package dk.sebb.tiled.layers
 {
 	import flash.display.Shape;
-	import flash.geom.Rectangle;
-	
-	import nape.geom.Vec2;
 
 	public dynamic class TMXObject extends Shape
 	{
@@ -15,10 +12,6 @@ package dk.sebb.tiled.layers
 		public function TMXObject(_object:XML) {
 			object = _object;
 			parseProperties();
-		}
-		
-		public function pointIsInside(vec:Vec2):void {
-			//#complete me
 		}
 		
 		public function parseProperties():void {

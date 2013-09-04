@@ -2,7 +2,6 @@ package dk.sebb.tiled
 {
 	import flash.display.BitmapData;
 	import flash.events.EventDispatcher;
-	import flash.events.IEventDispatcher;
 	
 	public class TileSet extends EventDispatcher
 	{
@@ -18,7 +17,7 @@ package dk.sebb.tiled
 		public var tileAmountWidth:uint;
 		public var xml:XML;
 		
-		public static var funcTiles:Array = [];
+		public static var tiles:Array = [];
 		
 		public function TileSet(firstgid:int, name:String, tileWidth:Number, tileHeight:Number, source:String, imageWidth:Number, imageHeight:Number, xml:XML)
 		{
@@ -48,7 +47,7 @@ package dk.sebb.tiled
 						funcTile[pname] = pvalue;
 					}
 				}
-				funcTiles[localGid + firstgid] = funcTile;
+				tiles[localGid + firstgid] = funcTile;
 			}
 		}
 	}

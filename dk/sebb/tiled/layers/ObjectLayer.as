@@ -25,7 +25,11 @@ package dk.sebb.tiled.layers
 				rectangle.graphics.endFill();
 				rectangle.x = object.attribute("x");
 				rectangle.y = object.attribute("y");
-				displayObject.addChild(rectangle);
+				
+				if(this.display && this.display === "true") {
+					displayObject.addChild(rectangle);
+				}
+
 				objects.push(rectangle);
 			}
 		}

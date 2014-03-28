@@ -2,7 +2,6 @@ package dk.sebb.tiled
 {
 	import flash.display.BitmapData;
 	import flash.events.EventDispatcher;
-	import flash.events.IEventDispatcher;
 	
 	public class TileSet extends EventDispatcher
 	{

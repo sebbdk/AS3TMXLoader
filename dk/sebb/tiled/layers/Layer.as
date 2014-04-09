@@ -3,14 +3,13 @@ package dk.sebb.tiled.layers
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
 	import flash.display.MovieClip;
-	import flash.events.EventDispatcher;
 	import flash.geom.Point;
 	import flash.geom.Rectangle;
 	
 	import dk.sebb.tiled.TMXLoader;
 	import dk.sebb.tiled.TileSet;
 	
-	public dynamic class Layer extends EventDispatcher
+	public dynamic class Layer
 	{
 		public var layer:XML;
 		public var map:Array;

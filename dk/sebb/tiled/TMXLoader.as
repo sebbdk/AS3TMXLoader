@@ -1,18 +1,16 @@
 package dk.sebb.tiled
 {
+	import flash.display.Bitmap;
+	import flash.events.Event;
+	import flash.events.EventDispatcher;
+	import flash.net.URLLoader;
+	import flash.net.URLRequest;
+	
 	import dk.sebb.tiled.layers.ImageLayer;
 	import dk.sebb.tiled.layers.Layer;
 	import dk.sebb.tiled.layers.ObjectLayer;
 	import dk.sebb.tiled.loaders.ImageLoader;
 	import dk.sebb.tiled.loaders.TilesetLoader;
-	
-	import flash.display.Bitmap;
-	import flash.events.Event;
-	import flash.events.EventDispatcher;
-	import flash.events.IEventDispatcher;
-	import flash.events.ProgressEvent;
-	import flash.net.URLLoader;
-	import flash.net.URLRequest;
 	
 	public dynamic class TMXLoader extends EventDispatcher
 	{

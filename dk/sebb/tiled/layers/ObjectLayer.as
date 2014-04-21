@@ -1,8 +1,10 @@
 package dk.sebb.tiled.layers
 {
-	import dk.sebb.tiled.TMXLoader;
-	
+	import flash.display.BitmapData;
 	import flash.display.Shape;
+	import flash.geom.Matrix;
+	
+	import dk.sebb.tiled.TMXLoader;
 
 	public dynamic class ObjectLayer extends Layer
 	{	
@@ -14,9 +16,10 @@ package dk.sebb.tiled.layers
 		}
 		
 		protected override function parseLayer():void {
-			displayObject.removeChildren();
 			objects = [];
 			
+			//#TODO draw rectangles to bitmapdata instead.. 
+			bitmapData = new BitmapData(tmxLoader.mapWidth * tmxLoader.tileWidth, tmxLoader.mapHeight * tmxLoader.tileHeight, true, 0x00000000);
 			for each (var object:XML in layer.object) {
 				var rectangle:Shape = new TMXObject(object);
 				rectangle.graphics.lineStyle(2);
@@ -25,7 +28,11 @@ package dk.sebb.tiled.layers
 				rectangle.graphics.endFill();
 				rectangle.x = object.attribute("x");
 				rectangle.y = object.attribute("y");
-				displayObject.addChild(rectangle);
+
+				var mtrx:Matrix = new Matrix();
+				mtrx.translate(object.attribute("x"), object.attribute("y"));
+				bitmapData.draw(rectangle, mtrx);
+				
 				objects.push(rectangle);
 			}
 		}

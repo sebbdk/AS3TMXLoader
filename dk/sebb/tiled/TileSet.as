@@ -39,6 +39,7 @@ package dk.sebb.tiled
 			for each (var tile:XML in xml.tile) {
 				var localGid:int = parseInt(tile.attribute("id"));
 				var funcTile:Object = new Object();
+
 				//parse tile properties
 				if(xml.properties) {
 					for each (var property:XML in tile.properties.children()) {

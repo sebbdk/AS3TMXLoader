@@ -7,8 +7,8 @@ package dk.sebb.tiled
 	import flash.net.URLRequest;
 	
 	import dk.sebb.tiled.layers.ImageLayer;
-	import dk.sebb.tiled.layers.Layer;
 	import dk.sebb.tiled.layers.ObjectLayer;
+	import dk.sebb.tiled.layers.TileLayer;
 	import dk.sebb.tiled.loaders.ImageLoader;
 	import dk.sebb.tiled.loaders.TilesetLoader;
 	
@@ -150,7 +150,7 @@ package dk.sebb.tiled
 			for each (var layer:XML in xml.children()) {
 				switch(layer.localName()) {
 					case 'layer':
-						layers.push(new Layer(layer, this));
+						layers.push(new TileLayer(layer, this));
 						break;
 					case 'imagelayer':
 						layers.push(new ImageLayer(layer, this));
